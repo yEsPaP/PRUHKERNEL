@@ -6,6 +6,7 @@ export ARCH=arm64
 export ANDROID_MAJOR_VERSION=q
 export PLATFORM_VERSION=10
 export USE_CCACHE=1
+CPU=`nproc --all`
 clear
 echo "Select"
 echo "1 = Clean Build"
@@ -25,9 +26,7 @@ if [ $n -eq 1 ]; then
 make clean && make mrproper
 rm -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image
 rm -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img
-#clear
 elif [ $n -eq 2 ]; then
-#clear
 
 echo "=========="
 
@@ -36,7 +35,7 @@ echo "============="
 echo "Building zImage For A320X"
 echo "============="
 make exynos7870-a3y17lte_defconfig
-make -j4
+make -j"$CPU"
 echo "Kernel Compiled for A3lte"
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-zImage
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-dt
@@ -47,7 +46,7 @@ exit
 elif [ $n -eq 4 ]; then
 
 make exynos7870-j7velte_defconfig
-make -j4
+make -j"$CPU"
 echo "Kernel Compiled for J7velte"
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-zImage
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-dt
@@ -57,7 +56,7 @@ mv /home/kernel/user/Pruh_Kernel/build_folder/image-new.img /home/kernel/user/Pr
 elif [ $n -eq 5 ]; then
 
 make exynos7870-a6lte_defconfig
-make -j4
+make -j"$CPU"
 echo "Kernel Compiled for A6"
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-zImage
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-dt
@@ -67,7 +66,7 @@ mv /home/kernel/user/Pruh_Kernel/build_folder/image-new.img /home/kernel/user/Pr
 elif [ $n -eq 6 ]; then
 
 make exynos7870-j5y17lte_defconfig
-make -j4
+make -j"$CPU"
 echo "Kernel Compiled for J5"
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-zImage
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-dt
@@ -77,7 +76,7 @@ mv /home/kernel/user/Pruh_Kernel/build_folder/image-new.img /home/kernel/user/Pr
 elif [ $n -eq 7 ]; then
 
 make exynos7870-j6lte_defconfig
-make -j4
+make -j"$CPU"
 echo "Kernel Compiled for J6lte"
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-zImage
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-dt
@@ -87,7 +86,7 @@ mv /home/kernel/user/Pruh_Kernel/build_folder/image-new.img /home/kernel/user/Pr
 elif [ $n -eq 8 ]; then
 
 make exynos7870-j7xelte_defconfig
-make -j4
+make -j"$CPU"
 echo "Kernel Compiled for J7xelte"
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-zImage
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-dt
@@ -97,7 +96,7 @@ mv /home/kernel/user/Pruh_Kernel/build_folder/image-new.img /home/kernel/user/Pr
 elif [ $n -eq 9 ]; then
 
 make exynos7870-j7y17lte_defconfig
-make -j4
+make -j"$CPU"
 echo "Kernel Compiled for J7y17lte"
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-zImage
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-dt
@@ -107,7 +106,7 @@ mv /home/kernel/user/Pruh_Kernel/build_folder/image-new.img /home/kernel/user/Pr
 elif [ $n -eq 10 ]; then
 
 make exynos7870-on7xelte_defconfig
-make -j4
+make -j"$CPU"
 echo "Kernel Compiled for on7xelte"
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/Image /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-zImage
 cp -r /home/kernel/user/Pruh_Kernel/arch/arm64/boot/dtb.img /home/kernel/user/Pruh_Kernel/build_folder/split_img/boot.img-dt
