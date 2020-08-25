@@ -317,7 +317,7 @@
 		battery,chg_12v_high_temp = <615>;
 		battery,chg_high_temp = <500>;
 		battery,chg_high_temp_recovery = <495>;
-		/* battery,chg_charging_limit_current = <1300>; */
+		/* battery,chg_charging_limit_current = <1500>; */
 
 		battery,wpc_high_temp = <460 495>;
 		battery,wpc_high_temp_recovery = <459 400>;
