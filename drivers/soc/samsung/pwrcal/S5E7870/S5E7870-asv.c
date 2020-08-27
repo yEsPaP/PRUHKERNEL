@@ -359,7 +359,7 @@ notfused:
 #ifdef PWRCAL_TARGET_LINUX
 	asv_dvfs_cpucl0->table->max_freq = 2002000;
 	asv_dvfs_cpucl1->table->max_freq = 2002000;
-	asv_dvfs_g3d->table->max_freq = 1246000;
+	asv_dvfs_g3d->table->max_freq = 1300000;
 	asv_dvfs_mif->table->max_freq = 900000;
 #endif
 	return;

@@ -73,9 +73,9 @@ void __iomem *g3d1_outstanding_regs;
 
 /*  clk,vol,abb,min,max,down stay, pm_qos mem, pm_qos int, pm_qos cpu_kfc_min, pm_qos cpu_egl_max */
 static gpu_dvfs_info gpu_dvfs_table_default[] = {
-	{1300, 900000, 0, 98, 100, 1, 0, 902000, 400000, 1586000, CPU_MAX},
-	{1246, 900000, 0, 98, 100, 1, 0, 902000, 400000, 1586000, CPU_MAX},
-	{1146, 900000, 0, 98, 100, 1, 0, 902000, 400000, 1586000, CPU_MAX},
+	{1300, 1200000, 0, 98, 100, 1, 0, 902000, 400000, 1586000, CPU_MAX},
+	{1246, 1200000, 0, 98, 100, 1, 0, 902000, 400000, 1586000, CPU_MAX},
+	{1146, 1200000, 0, 98, 100, 1, 0, 902000, 400000, 1586000, CPU_MAX},
 	{1001, 900000, 0, 98, 100, 1, 0, 902000, 400000, 1586000, CPU_MAX},
 	{845,  900000, 0, 78,  98, 1, 0, 836000, 400000, 1248000, CPU_MAX},
 	{728,  900000, 0, 78,  85, 1, 0, 728000, 400000, 1144000, CPU_MAX},
@@ -94,8 +94,8 @@ static int mif_min_table[] = {
 };
 
 static gpu_attribute gpu_config_attributes[] = {
-	{GPU_MAX_CLOCK, 1001},
-	{GPU_MAX_CLOCK_LIMIT, 1001},
+	{GPU_MAX_CLOCK, 1300},
+	{GPU_MAX_CLOCK_LIMIT, 1300},
 	{GPU_MIN_CLOCK, 343},
 	{GPU_DVFS_START_CLOCK, 343},
 	{GPU_DVFS_BL_CONFIG_CLOCK, 343},
@@ -119,7 +119,7 @@ static gpu_attribute gpu_config_attributes[] = {
 	{GPU_COLD_MINIMUM_VOL, 0},
 	{GPU_VOLTAGE_OFFSET_MARGIN, 25000},
 	{GPU_TMU_CONTROL, 1},
-	{GPU_TEMP_THROTTLING1, 1001},
+	{GPU_TEMP_THROTTLING1, 1300},
 	{GPU_TEMP_THROTTLING2, 845},
 	{GPU_TEMP_THROTTLING3, 728},
 	{GPU_TEMP_THROTTLING4, 545},
@@ -341,9 +341,6 @@ static int gpu_enable_clock(struct exynos_context *platform)
 
 static int gpu_disable_clock(struct exynos_context *platform)
 {
-	GPU_LOG(DVFS_DEBUG, DUMMY, 0u, 0u, "%s: [vclk_g3d]\n", __func__);
-	clk_disable_unprepare(vclk_g3d);
-	return 0;
 }
 #endif
 
